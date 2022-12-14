@@ -13,7 +13,6 @@ the songs displayed on the top 100 streamed song from large streaming platforms
 like Spotify with Top 100 Billboard or if there is a dramatic difference between the
 two.
 
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
