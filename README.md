@@ -43,11 +43,11 @@ two.
                 <p>When you complete a lab or tutorial, you can wire it up here for easier access.</p>
                 <div class="menu-label">Individual Labs for 377</div>
                 <ul class="menu-list is-active">
-                  <li><a href="./lab_8">Lab 8 - HTML: Basic Page Elements</a></li>
-                  <li><a href="./lab_9">Lab 9 - CSS: Build A Page To Match Selectors</a></li>
-                  <li><a href="./lab_10">Lab 10 - Javascript 1: Make A Carousel</a></li>
-                  <li><a href="./lab_11">Lab 11 - Build and style a page from scratch</a></li>
-                  <li><a href="./final_project">Final Project</a></li>
+                  <li><a href="./client/lab_8">Lab 8 - HTML: Basic Page Elements</a></li>
+                  <li><a href="./client//lab_9">Lab 9 - CSS: Build A Page To Match Selectors</a></li>
+                  <li><a href="./client//lab_10">Lab 10 - Javascript 1: Make A Carousel</a></li>
+                  <li><a href="./client//lab_11">Lab 11 - Build and style a page from scratch</a></li>
+                  <li><a href="./client/final_project">Final Project</a></li>
                 </ul>
               </aside>
             </div>
