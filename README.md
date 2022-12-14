@@ -1,60 +1,316 @@
-# grubbjabari.github.io
+# INST377 Lab Support Software
 
-Title: Spotify Top 100 Project
-Target OS: MAC OS 13 Ventura
-Target WebBrowser: Mozilla FireFox and Google Chrome
+This repository is the starting point for most labs in INST377. It represents a working "server" and "client" package for your first seven weeks of class. You can use any of the code you find here to help you with your labs or your group projects.
 
-## Description
+## Getting Started
 
-API Used: Spotify
-Visualization: Used Chart.js to creat charts of Spotify plays
-Display and Solve: Trying to display and solve if there is a correlation between 
-the songs displayed on the top 100 streamed song from large streaming platforms 
-like Spotify with Top 100 Billboard or if there is a dramatic difference between the
-two.
+* "Clone" or download this repository using the large green button marked "code"
+* Install the software dependencies
+* Start your server, which will run on `port 3000` locally
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+### Install Dependencies 
 
-  <body>
-    <section id="home" class="mb-3">
-        <nav class="navbar has-background-info-dark">
-          <div class="container">
-            <div class="navbar-brand">
-              <a href="#home" class="navbar-item">
-                <h2 class="subtitle has-text-light">INST377 Labs List</h2>
-              </a>
-            </div>
-          </div>
-        </nav>
-    </section>
-    <section>
-      <div class="container">
-        <div class="columns">
-          <div class="column">
-            <!-- Main -->
-            <div class="block">
-              <aside class="menu ml-1">
-                <!-- Menu -->
-                <p>When you complete a lab or tutorial, you can wire it up here for easier access.</p>
-                <div class="menu-label">Individual Labs for 377</div>
-                <ul class="menu-list is-active">
-                  <li><a href="./client/lab_1">Lab 1 - Lab One to test something</a></li>
-                  <li><a href="./client/lab_8">Lab 8 - HTML: Basic Page Elements</a></li>
-                  <li><a href="./client/lab_9">Lab 9 - CSS: Build A Page To Match Selectors</a></li>
-                  <li><a href="./client/lab_10">Lab 10 - Javascript 1: Make A Carousel</a></li>
-                  <li><a href="./client/lab_11">Lab 11 - Build and style a page from scratch</a></li>
-                  <li><a href="./client/final_project">Final Project</a></li>
-                </ul>
-              </aside>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </body>
-</html>
+    npm install
+
+### Run the Server
+
+    npm start
+<hr>
+
+Below are details of the API contained within this piece of labwork.
+
+<hr>
+
+## REST API example using Sequelize
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>Retrieves resources</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>Creates resources</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>Changes and/or replaces resources or collections</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>Deletes resources</td>
+    </tr>
+  </tbody>
+</table>
+
+# Dining Hall
+
+## Get list of Dining Halls
+
+#### Request
+
+`GET /api/dining`
+
+    curl http://localhost:3000/api/dining
+
+#### Response
+    [{
+            "hall_id":1,
+            "hall_name":"North Campus Dining Hall",
+            "hall_location":"North Campus"
+        },
+        {
+            "hall_id":2,
+            "hall_name":"South Campus Dining Hall",
+            "hall_location":"South Campus"
+        },
+        {
+            "hall_id":3,
+            "hall_name":"251 North Dining Hall",
+            "hall_location":"North Campus"
+    }]
+## Get a Specific Dining Hall
+
+#### Request
+
+`GET /api/dining/:hall_id`
+
+    curl http://localhost:3000/api/dining/1
+
+#### Response
+
+    [{
+        "hall_id":1,
+        "hall_name":"North Campus Dining Hall",
+        "hall_location":"North Campus"
+    }]
+    
+
+
+## Create a new Dining Hall
+
+#### Request
+
+`POST /api/dining`
+
+    curl -d "hall_id=4&hall_name=Example&hall_location=Hornbake" -X POST http://localhost:3000/api/dining
+
+#### Response
+
+    {
+        "hall_id":"4",
+        "hall_name":"Example",
+        "hall_location":"Hornbake"
+    }
+
+## Updating an Existing Dining Hall
+
+#### Request
+
+`PUT /api/dining`
+
+    curl -d "hall_id=4&hall_name=Example1&hall_location=Stamp" -X PUT http://localhost:3000/api/dining
+
+#### Response
+
+    Successfully Updated
+
+## Delete an Existing Dining Hall
+
+#### Request
+
+`DELETE /api/dining/:hall_id`
+
+    curl -X DELETE http://localhost:3000/api/dining/4
+
+#### Response
+
+    Successfully Deleted
+<hr>
+
+# Meals
+
+## Get list of Meals
+
+#### Request
+
+`GET /api/meals`
+
+    curl http://localhost:3000/api/meals
+
+#### Response
+    [{
+        "meal_id":1,
+        "meal_name":"Scrambled Eggs",
+        "meal_category":"B"
+    },
+    {
+        "meal_id":2,
+        "meal_name":"French Toast",
+        "meal_category":"B"
+    },
+    {
+        "meal_id":3,
+        "meal_name":"Pancakes",
+        "meal_category":"B"
+    },
+        ...
+    ]
+## Get a Specific Meal
+
+#### Request
+
+`GET /api/meals/:meal_id`
+
+    curl http://localhost:3000/api/meals/1
+
+#### Response
+
+    [{
+        "meal_id":1,
+        "meal_name":"Scrambled Eggs",
+        "meal_category":"B"
+    }]
+    
+## Updating an Existing Meal
+
+#### Request
+
+`PUT /api/meals`
+
+    curl -d "meal_id=1&meal_name=Scrambled Eggs&meal_category=L" -X PUT http://localhost:3000/api/meal
+
+#### Response
+
+    Successfully Updated
+
+<hr>
+
+# Macros
+
+## Get list of Macros
+
+#### Request
+
+`GET /api/macros`
+
+    curl http://localhost:3000/api/macros
+
+#### Response
+    [{
+        "macro_id":1,
+        "calories":218,
+        "serving_size":20,
+        "cholesterol":544,
+        "sodium":206,
+        "carbs":1,
+        "protein":17,
+        "meal_id":1,
+        "fat":16
+    },
+    {
+        "macro_id":2,
+        "calories":371,
+        "serving_size":1,
+        "cholesterol":0,
+        "sodium":209,
+        "carbs":10,
+        "protein":5,
+        "meal_id":2,
+        "fat":10
+    },
+        ...
+    ]
+## Get a Macros for a Specific Meal
+
+#### Request
+
+`GET /api/macros/:meal_id`
+
+    curl http://localhost:3000/api/macros/1
+
+#### Response
+
+    [{
+        "macro_id":1,
+        "calories":218,
+        "serving_size":20,
+        "cholesterol":544,
+        "sodium":206,
+        "carbs":1,
+        "protein":17,
+        "meal_id":1,
+        "fat":16
+    }]
+    
+## Updating an Existing Macro
+
+#### Request
+
+`PUT /api/macros`
+
+    curl -d "macro_id=1&calories=318&serving_size=20&cholesterol=544&sodium=206&carbs=1&protein=17&meal_id=1&fat=16" -X PUT http://localhost:3000/api/macros
+
+#### Response
+
+    Successfully Updated
+<hr>
+
+# Custom Client SQL
+
+#### Request
+
+`GET /api/custom`
+
+    curl --location --request GET 'http://localhost:3000/api/custom' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'query=SELECT 
+    `DiningHall_Tracker`.`Meals`.`meal_name` AS `meal_name`,
+        `DiningHall_Tracker`.`Macros`.`calories` AS `calories`,
+        `DiningHall_Tracker`.`Macros`.`carbs` AS `carbs`,
+        `DiningHall_Tracker`.`Macros`.`sodium` AS `sodium`,
+        `DiningHall_Tracker`.`Macros`.`protein` AS `protein`,
+        `DiningHall_Tracker`.`Macros`.`fat` AS `fat`,
+        `DiningHall_Tracker`.`Macros`.`cholesterol` AS `cholesterol`
+    FROM
+        (`DiningHall_Tracker`.`Meals`
+        JOIN `DiningHall_Tracker`.`Macros`)
+    WHERE
+        (`DiningHall_Tracker`.`Meals`.`meal_id` = `DiningHall_Tracker`.`Macros`.`meal_id`)'   
+
+#### Response
+    [{
+        "meal_name": "Scrambled Eggs",
+        "calories": 218,
+        "carbs": 1,
+        "sodium": 206,
+        "protein": 17,
+        "fat": 16,
+        "cholesterol": 544
+    },
+    {
+        "meal_name": "French Toast",
+        "calories": 371,
+        "carbs": 10,
+        "sodium": 209,
+        "protein": 5,
+        "fat": 10,
+        "cholesterol": 0
+    },
+    {
+        "meal_name": "Pancakes",
+        "calories": 430,
+        "carbs": 15,
+        "sodium": 111,
+        "protein": 4,
+        "fat": 15,
+        "cholesterol": 30
+    },
+        ...
+    ]

@@ -19,7 +19,7 @@ function getRandomIntInclusive(min, max) {
 
 function injectHTML(list) {
   console.log('fired injectHTML');
-  const target = document.querySelector('#restaurant_list');
+  const target = document.querySelector('#library_list');
   target.innerHTML = '';
   const listEl = document.createElement('ol');
   target.appendChild(listEl);
@@ -44,8 +44,8 @@ function injectHTML(list) {
     */
 }
 
-function processRestaurants(list) {
-  console.log('fired restaurants list');
+function processLibraries(list) {
+  console.log('fired library list');
   const range = [...Array(15).keys()];
   // eslint-disable-next-line no-unused-vars
   const newArray = range.map((item) => {
@@ -225,7 +225,7 @@ async function mainEvent() {
       submitEvent.preventDefault();
 
       // This constant will have the value of your 15-restaurant collection when it processes
-      currentList = processRestaurants(arrayFromJson.data);
+      currentList = processLibraries(arrayFromJson.data);
 
       // And this function call will perform the "side effect" of injecting the HTML list for you
       injectHTML(currentList);
