@@ -48,7 +48,7 @@ two.
                   <li><a href="./client/lab_9">Lab 9 - Charts.js and Working With Github As A Team</a></li>
                   <li><a href="./client/lab_10">Lab 10 - Show Your API Data</a></li>
                   <li><a href="./client/lab_11">Lab 11 - Filter Your Visualization </a></li>
-                  <li><a href="./client/final_project">Final Project</a></li>
+                  <li><a href="./client/lab_10">Final Project</a></li>
                 </ul>
               </aside>
             </div>
